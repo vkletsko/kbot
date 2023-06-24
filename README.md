@@ -1,7 +1,6 @@
 # kbot
 simple bot for telegram
 
-
 link to bot:
 
 https://t.me/vkletsko_bot
