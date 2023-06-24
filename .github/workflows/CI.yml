@@ -34,13 +34,16 @@ jobs:
 
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 0    
       - run: echo "VERSION=$(git describe --tags --abbrev=0)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
       - uses: mikefarah/yq@master
         with:
           cmd: yq -i '.image.tag=strenv(VERSION) | .image.arch=strenv(TARGETARCH)' helm/values.yaml
-      - run: | 
+      - name: Commit
+        env:
+          VERSION: ${{ env.VERSION }}
+        run: | 
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
           git commit -am "update version $VERSION"
