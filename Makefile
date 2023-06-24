@@ -1,5 +1,4 @@
 APP=$(shell basename $(shell git remote get-url origin))
-REGISTRY := vkletsko
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 TARGETOS=linux #linux | darwin | windows
 TARGETARCH=amd64 #amd64 | arm64
@@ -35,11 +34,11 @@ build: format deps
 	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X="github.com/vkletsko/kbot/cmd.Version=${VERSION}	
 
 image:
-	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH} --build-arg TARGETARCH=${TARGETARCH}
+	docker build . -t ${REGISTRY}/${USERNAME}/${APP}:${VERSION}-${TARGETARCH} --build-arg TARGETARCH=${TARGETARCH}
 
 push:
-	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker push ${REGISTRY}/${USERNAME}/${APP}:${VERSION}-${TARGETARCH}
 
 clean:
 	rm -f kbot
-	docker rmi ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}	
+	docker rmi ${REGISTRY}/${USERNAME}/${APP}:${VERSION}-${TARGETARCH}	
