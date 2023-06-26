@@ -1,6 +1,7 @@
 APP=$(shell basename $(shell git remote get-url origin))
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
-TARGETOS=linux #linux | darwin | windows
+#linux | darwin | windows
+TARGETOS=linux
 TARGETARCH=amd64 #amd64 | arm64
 
 linux: 
