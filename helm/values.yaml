@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: "vkletsko"
-  tag: "v1.0.5-becbcc0"
+  tag: "v1.0.5-feb90a3"
   arch: ""
 secret:
   name: "kbot"
