@@ -4,9 +4,11 @@
 
 replicaCount: 1
 image:
-  repository: "vkletsko"
-  tag: "v1.0.5-feb90a3"
-  arch: ""
+  registry: "ghcr.io"
+  repository: "vkletsko/kbot"
+  tag: "v1.0.5-813213d"
+  arch: "amd64"
+  os: "linux"
 secret:
   name: "kbot"
   tokenKey: "token"
