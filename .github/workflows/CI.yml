@@ -49,5 +49,5 @@ jobs:
           git commit -am "update version $VERSION"
       - name: Push
         run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GHCR_TOKEN }}@github.com/${{ github.repository }}
+          # git remote set-url origin https://x-access-token:${{ secrets.GHCR_TOKEN }}@github.com/${{ github.repository }}
           git push
