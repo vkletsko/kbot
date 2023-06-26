@@ -5,8 +5,8 @@
 replicaCount: 1
 image:
   repository: "vkletsko"
-  tag: "v1.0.2-bff0e13"
-  arch: amd64
+  tag: "v1.0.5-becbcc0"
+  arch: ""
 secret:
   name: "kbot"
   tokenKey: "token"
